@@ -1592,75 +1592,6 @@ p {
 
 
 
-.slider {
-  margin-bottom: 30px;
-  position: relative;
-}
-.slider .owl-item.active.center .slider-card {
-  transform: scale(1.15);
-  opacity: 1;
-  background: #10123b; /* fallback for old browsers */
-  color: #fff;
-}
-.slider-card {
-  background: #1581c2;
-  padding: 0px 0px;
-  margin: 50px 15px 90px 15px;
-  border-radius: 5px;
-  box-shadow: 0 15px 45px -20px rgb(0 0 0 / 73%);
-  transform: scale(0.9);
-  opacity: 0.5;
-  transition: all 0.3s;
-}
-.slider-card img {
-  border-radius: 5px 5px 0px 0px;
-}
-
-.slider-card h2 {
-  font-weight: 100;
-  color: #fff;
-  padding: 10px 20px 0 20px;
-}
-
-.slider-card h3 {
-  font-weight: 100;
-  color: #cccccc;
-  padding: 10px 20px 50px 20px;
-}
-
-.owl-nav .owl-prev {
-  position: absolute;
-  top: calc(50% - 25px);
-  left: 0;
-  opacity: 1;
-  font-size: 30px !important;
-  z-index: 1;
-}
-.owl-nav .owl-next {
-  position: absolute;
-  top: calc(50% - 25px);
-  right: 0;
-  opacity: 1;
-  font-size: 30px !important;
-  z-index: 1;
-}
-.owl-dots {
-  text-align: center;
-}
-.owl-dots .owl-dot {
-  height: 10px;
-  width: 10px;
-  border-radius: 10px;
-  background: #ccc !important;
-  margin-left: 3px;
-  margin-right: 3px;
-  outline: none;
-}
-.owl-dots .owl-dot.active {
-  background: #10123b !important;
-}
-
-
 /*--------------------------------------------------------------
 # Formulario de contacto
 --------------------------------------------------------------*/
@@ -1670,4 +1601,426 @@ p {
   width: 1px;
   height: 1px;
   overflow: hidden;
+}
+
+
+/*--------------------------------------------------------------
+# Secciones nuevas (2026): servicios, proyectos, certificaciones
+--------------------------------------------------------------*/
+.page-title {
+  margin-top: 100px;
+}
+
+/* Que la cabecera fija no tape las secciones enlazadas con # */
+section[id] {
+  scroll-margin-top: 110px;
+}
+
+.especialh2-sm {
+  font-size: 34pt;
+}
+
+.section-alt {
+  background-color: #f4f7fb;
+}
+
+.section p.lead-ef,
+.section p.text-ef {
+  display: block;
+}
+
+.lead-ef {
+  font-family: "Poppins", sans-serif;
+  font-size: 16pt;
+  font-weight: 200;
+  line-height: 1.6;
+  color: #10123b;
+}
+
+.lead-ef strong,
+.text-ef strong {
+  font-weight: 500;
+  color: #167fc1;
+}
+
+.text-ef {
+  font-family: "Poppins", sans-serif;
+  font-size: 13pt;
+  font-weight: 300;
+  line-height: 1.7;
+  color: #10123b;
+}
+
+.img-ef {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 15px 45px -20px rgb(0 0 0 / 50%);
+}
+
+.btn-ef {
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  font-size: 13pt;
+  font-weight: 400;
+  padding: 12px 34px;
+  border-radius: 40px;
+  background: #1380c1;
+  color: #fff;
+  border: 2px solid #1380c1;
+  transition: 0.3s all ease;
+}
+
+.btn-ef:hover,
+.btn-ef:focus {
+  background: #10123b;
+  border-color: #10123b;
+  color: #fff;
+}
+
+.btn-ef-outline {
+  background: transparent;
+  color: #1380c1;
+}
+
+.btn-ef-light {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #fff;
+  color: #fff;
+}
+
+.btn-ef-light:hover {
+  background: #fff;
+  border-color: #fff;
+  color: #10123b;
+}
+
+/* Botón del hero de inicio */
+.hero-cta {
+  position: relative;
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* Tarjetas de características (enfoque 360º, por qué escogernos...) */
+.feature-ef {
+  height: 100%;
+  padding: 30px 25px;
+  text-align: center;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 15px 45px -25px rgb(16 18 59 / 45%);
+}
+
+.feature-ef img {
+  width: 110px;
+  height: 110px;
+  margin-bottom: 20px;
+}
+
+.feature-ef h3 {
+  font-size: 16pt;
+  font-weight: 500;
+  color: #10123b;
+  margin-bottom: 12px;
+}
+
+.feature-ef p {
+  display: block;
+  font-family: "Poppins", sans-serif;
+  font-size: 12pt;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #10123b;
+  margin: 0;
+}
+
+/* Tarjetas de servicio enlazadas */
+a.servicio-card {
+  display: block;
+  height: 100%;
+  padding: 35px 25px;
+  text-align: center;
+  border-radius: 20px;
+  background: #10123b;
+  color: #fff;
+  box-shadow: 0 15px 45px -20px rgb(0 0 0 / 60%);
+}
+
+.col-servicio:nth-child(even) a.servicio-card {
+  background: #1581c2;
+}
+
+a.servicio-card:hover {
+  transform: translateY(-6px);
+  color: #fff;
+}
+
+a.servicio-card img {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 20px;
+  filter: brightness(0) invert(1);
+}
+
+a.servicio-card h3 {
+  font-size: 17pt;
+  font-weight: 400;
+  color: #fff;
+}
+
+a.servicio-card span {
+  font-size: 11pt;
+  opacity: 0.75;
+}
+
+/* Lista numerada de beneficios */
+.beneficio-num {
+  font-family: "Poppins", sans-serif;
+  font-size: 48pt;
+  font-weight: 600;
+  line-height: 1;
+  background: linear-gradient(-45deg, #10123b, #1380c1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Columnas de due diligence */
+.dd-col {
+  height: 100%;
+  padding: 35px 30px;
+  border-radius: 20px;
+  background: #fff;
+  border-top: 6px solid #1380c1;
+  box-shadow: 0 15px 45px -25px rgb(16 18 59 / 45%);
+}
+
+.dd-col img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+}
+
+.dd-col h3 {
+  font-size: 18pt;
+  font-weight: 500;
+  color: #10123b;
+}
+
+.dd-col ul {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.dd-col li {
+  font-family: "Poppins", sans-serif;
+  font-size: 12pt;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #10123b;
+  margin-bottom: 10px;
+}
+
+.dd-col li strong {
+  font-weight: 500;
+  color: #167fc1;
+}
+
+.dd-col .dd-claim {
+  display: block;
+  margin-top: 15px;
+  font-family: "Poppins", sans-serif;
+  font-size: 12pt;
+  font-weight: 500;
+  color: #1380c1;
+}
+
+/* Proyectos */
+.proyectos-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.proyecto-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #10123b;
+  color: #fff;
+  box-shadow: 0 15px 45px -20px rgb(0 0 0 / 60%);
+}
+
+.proyecto-card.alt {
+  background: #1581c2;
+}
+
+.proyecto-card .proyecto-img {
+  height: 220px;
+  background: #fff;
+}
+
+.proyecto-card .proyecto-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.proyecto-card .proyecto-img.contain img {
+  object-fit: contain;
+  padding: 10px;
+}
+
+.proyecto-card .proyecto-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 220px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.proyecto-card .proyecto-icon img {
+  width: 110px;
+  height: 110px;
+  filter: brightness(0) invert(1);
+}
+
+.proyecto-card .proyecto-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.proyecto-card .proyecto-tag {
+  font-size: 10pt;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.7;
+}
+
+.proyecto-card h3 {
+  font-size: 16pt;
+  font-weight: 400;
+  color: #fff;
+  margin: 8px 0 12px;
+}
+
+.proyecto-card p {
+  display: block;
+  font-size: 11pt;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.proyecto-card .btn-ef {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+/* Certificaciones */
+.cert-item {
+  display: block;
+  padding: 15px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 15px 45px -25px rgb(16 18 59 / 45%);
+}
+
+.cert-item img {
+  width: 100%;
+  height: 320px;
+  object-fit: contain;
+}
+
+/* Bloque "próximamente" */
+.pendiente-ef {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 50px 30px;
+  text-align: center;
+  border: 2px dashed #b9d5ea;
+  border-radius: 20px;
+}
+
+/* CTA final */
+.cta-ef {
+  padding: 5rem 0;
+  text-align: center;
+  background: linear-gradient(-45deg, #10123b, #1380c1);
+}
+
+.cta-ef h2 {
+  font-size: 28pt;
+  font-weight: 200;
+  color: #fff;
+  margin-bottom: 25px;
+}
+
+/* Tipografía en pantallas pequeñas */
+@media (max-width: 768px) {
+  .especialh2 {
+    font-size: 30pt;
+  }
+
+  .especialh3 {
+    font-size: 24pt;
+  }
+
+  .especialh2-sm {
+    font-size: 24pt;
+  }
+
+  .especialh4 {
+    font-size: 18pt;
+    line-height: 1.3;
+  }
+
+  .especialp,
+  .especialp2 {
+    font-size: 15pt;
+  }
+
+  .section-heading {
+    font-size: 2.2rem;
+  }
+
+  .lead-ef {
+    font-size: 14pt;
+  }
+
+  .page-title {
+    margin-top: 60px;
+  }
+
+  .section {
+    padding: 4rem 0;
+  }
+
+  .cta-ef h2 {
+    font-size: 20pt;
+  }
+}
+
+/* Hero de inicio en tablet y móvil: el contenedor ocupa el ancho real de la pantalla */
+@media (max-width: 1000px) {
+  .hero-section .principal {
+    width: 100%;
+  }
+
+  .hero-section .principal .loading-text {
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-section .principal span.explanation {
+    font-size: 10vw;
+    line-height: 14vw;
+  }
 }

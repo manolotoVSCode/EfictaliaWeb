@@ -5,3 +5,4 @@ error_log
 cgi-bin/
 pruebas/
 home.html
+.claude/
