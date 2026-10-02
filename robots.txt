@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /pruebas/
+Disallow: /cgi-bin/
+Disallow: /sendbymail.php
+Disallow: /respuesta.html
+
+Sitemap: https://efictalia.com.mx/sitemap.xml

@@ -1,61 +1,59 @@
 <?php
+// Procesa el formulario de contacto (contacto.html) y envía el mensaje por correo.
 
-$name = $_POST['name'];
-$visitor_email = $_POST['email'];
-$message = $_POST['message'];
+$destinatario = "efictalia@efictalia.com.mx";
+$remitente    = "noreply@efictalia.com.mx"; // debe pertenecer al dominio para no caer en spam
 
-//Validate first
-if(empty($name)||empty($visitor_email))
-{
-		echo '<script type="text/javascript">
-	    alert("Nombre y Correo electronico son necesarios.");
-		    history.back();
-		  </script>';
-    return;
+// Solo se aceptan envíos del formulario
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header('Location: contacto.html', true, 303);
+    exit;
 }
 
-if(IsInjected($visitor_email))
-{
-	echo '<script type="text/javascript">
-		alert("Formato de correo electronico incorrecto.");
-			history.back();
-		</script>';
-	return;
+// Campo trampa: invisible para personas, los bots suelen rellenarlo
+if (!empty($_POST['website'])) {
+    header('Location: respuesta.html', true, 303);
+    exit;
 }
 
-$email_from = "$visitor_email";//<== update the email address
-$email_subject = "Mensaje desde efictalia.com.mx";
-$email_body = "Nombre: $name\n\n".
-"Mensaje: $message\n\n".
-$headers = "Email: $email_from \n\n";
-$to = "efictalia@efictalia.com.mx";//<== update the email address
-//Send the email!
-mail($to,$email_subject,$email_body,$headers);
-//done. redirect to thank-you page.
-header('Location: respuesta.html');
+$nombre  = trim(strip_tags($_POST['name'] ?? ''));
+$email   = trim($_POST['email'] ?? '');
+$mensaje = trim(strip_tags($_POST['message'] ?? ''));
 
-
-// Function to validate against any email injection attempts
-function IsInjected($str)
-{
-  $injections = array('(\n+)',
-              '(\r+)',
-              '(\t+)',
-              '(%0A+)',
-              '(%0D+)',
-              '(%08+)',
-              '(%09+)'
-              );
-  $inject = join('|', $injections);
-  $inject = "/$inject/i";
-  if(preg_match($inject,$str))
-    {
-    return true;
-  }
-  else
-    {
-    return false;
-  }
+function volver_con_error($texto) {
+    echo '<script>alert(' . json_encode($texto) . '); history.back();</script>';
+    exit;
 }
 
-?>
+if ($nombre === '' || $email === '' || $mensaje === '') {
+    volver_con_error('Nombre, correo electrónico y mensaje son necesarios.');
+}
+
+// filter_var rechaza saltos de línea, lo que evita la inyección de cabeceras
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    volver_con_error('Formato de correo electrónico incorrecto.');
+}
+
+if (mb_strlen($nombre) > 100 || mb_strlen($mensaje) > 5000) {
+    volver_con_error('El mensaje es demasiado largo.');
+}
+
+$nombre = str_replace(["\r", "\n"], ' ', $nombre);
+
+$asunto  = '=?UTF-8?B?' . base64_encode('Mensaje desde efictalia.com.mx') . '?=';
+$cuerpo  = "Nombre: $nombre\n";
+$cuerpo .= "Email: $email\n\n";
+$cuerpo .= "Mensaje:\n$mensaje\n";
+
+$cabeceras  = "From: Efictalia Web <$remitente>\r\n";
+$cabeceras .= "Reply-To: $email\r\n";
+$cabeceras .= "MIME-Version: 1.0\r\n";
+$cabeceras .= "Content-Type: text/plain; charset=UTF-8\r\n";
+$cabeceras .= "Content-Transfer-Encoding: 8bit\r\n";
+
+if (!mail($destinatario, $asunto, $cuerpo, $cabeceras, "-f$remitente")) {
+    volver_con_error('No se pudo enviar el mensaje. Por favor escríbenos a ' . $destinatario);
+}
+
+header('Location: respuesta.html', true, 303);
+exit;
